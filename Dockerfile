@@ -52,3 +52,8 @@ RUN git clone https://github.com/scipr-lab/libfqfft.git; \
     make; \
     make install; \
     cd ..
+
+RUN mkdir build && cd build; \
+    cmake .. -WITH_PROCPS=ON -DMULTICORE=ON; \
+    make; \
+    
