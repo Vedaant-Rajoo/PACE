@@ -6,6 +6,8 @@ LABEL maintainer="Vedaant" \
 
 RUN apt-get update -y
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get install -y --no-install-recommends\
                     git \
                     curl \
@@ -28,3 +30,25 @@ RUN apt-get install -y --no-install-recommends\
     apt-get autoremove && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
+# The first library dependency installation libff
+
+RUN git clone https://github.com/scipr-lab/libff.git; \
+    cd libff; \
+    git submodule init && git submodule update; \
+    mkdir build && cd build; \
+    cmake .. -WITH_PROCPS=ON; \
+    make; \
+    make install; \
+    cd ..
+
+#The second library installation in progress
+
+RUN git clone https://github.com/scipr-lab/libfqfft.git; \
+    cd libfqfft; \
+    git submodule init && git submodule update; \
+    mkdir build && cd build; \
+    cmake .. -WITH_PROCPS=ON -DMULTICORE=ON; \
+    make; \
+    make install; \
+    cd ..
