@@ -20,6 +20,11 @@
   <p align="center">
     Library for evaluating the correctness of arithmetic circuits in Non-Interactive Zero knowledge Proofs
   </p>
+  <p>
+  <b>
+    Project Submission from Vedaant Rajoo & Aditya Gupta
+    </b>
+  </p>
 </div>
 
 
@@ -62,8 +67,7 @@ If you're on Ubuntu Distro then you can setup the pre-requisites using the local
 For the below setup instructions, you need `docker` installed on your machine. [Instructions for installing Docker](https://docs.docker.com/get-docker/).
 * Docker
   ```sh
-  docker build -t pace .
-  docker run -it pace:latest
+  make docker
   ```
   Now you're in the docker container as a root. Following commands are run inside the container.
   ```sh
@@ -89,6 +93,13 @@ In the root directory of the library run:
 ./profile
 ```
 **This may take an upwards of 30-40 mins for the whole execution to complete.**
+
+#### CleanUp
+To cleanup all the build files and all the dependency libraries installed run:
+```sh
+make clean
+```
+All `make` commands should be run on your local terminal. Make sure that commands that are run inside a container have been specifically mentioned above.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

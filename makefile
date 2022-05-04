@@ -61,7 +61,8 @@ local:
 	@echo "------- Now we can build the PACE library ------"
 
 docker:
-	@docker build -t pace .
+	@docker build -t pace .; \
+    docker run -it pace:latest
 
 clean:
 	@rm -rf libff/
