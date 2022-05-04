@@ -5,7 +5,6 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
@@ -24,35 +23,6 @@
 </div>
 
 
-
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
-
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
@@ -69,6 +39,7 @@ But in the interactive part of the process, there has to be a trust between the 
 * C++
 * Elliptical Curves and Fields
 * Fast Fourier Transforms
+* BOOST
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -80,7 +51,7 @@ But in the interactive part of the process, there has to be a trust between the 
 
 There are two ways to setup this library.
 
-### Setup
+### Setup (Build Instructions)
 
 If you're on Ubuntu Distro then you can setup the pre-requisites using the local makefiles (make sure to run it with `sudo`)
 * Ubuntu
@@ -92,100 +63,36 @@ For the below setup instructions, you need `docker` installed on your machine. [
 * Docker
   ```sh
   docker build -t pace .
-  sudo make
+  docker run -it pace:latest
+  ```
+  Now you're in the docker container as a root. Following commands are run inside the container.
+  ```sh
+  cd PACE/build 
   ```
 
-### Installation
+### Library Operations
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/Vedaant-Rajoo/PACE.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+1. There are two different opeartions in PACE.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+#### Tests
+After succesfully building the library. We can run the unit tests written in boost which will check if the build was perfect or not. In the `build` directory of the library you can run.
+```sh
+  make check
+```
+It checks the provers code and the verifiers code with sample input and output data.
 
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+#### Profile Data
+After running the check you can test the library using the profiling code provided which runs the circuit evaluation on variable batch data with 1,2,4,8 threads simultaneously and then logs and stores the plot in the `src/profiling` directory.
+To run this automated code you need to run the executable created when building the library.
+In the root directory of the library run:
+```sh
+./profile
+```
+**This may take an upwards of 30-40 mins for the whole execution to complete.**
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
-
-See the [open issues](https://github.com/Vedaant-Rajoo/PACE/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@iamnewedia](https://twitter.com/iamnewedia) - email@email_client.com
-
-Project Link: [https://github.com/Vedaant-Rajoo/PACE](https://github.com/Vedaant-Rajoo/PACE)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 

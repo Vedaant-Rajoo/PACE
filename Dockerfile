@@ -53,9 +53,10 @@ RUN git clone https://github.com/scipr-lab/libfqfft.git; \
     make install; \
     cd ..
 
+# Installing out library
+
 RUN git clone https://github.com/Vedaant-Rajoo/PACE.git; \
     cd PACE; \
     mkdir build && cd build; \
     cmake .. -WITH_PROCPS=ON -DMULTICORE=ON; \
-    make; \
-    cd ..
+    make
